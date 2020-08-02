@@ -1,0 +1,13 @@
+<%= simple_form_for(company) do |f| %>
+<%= f.input :name %>
+<%= f.input :furigana %>
+<%= f.input :ceo %>
+<%= f.input :address %>
+<%= f.input :address2 %>
+<%= f.input :phone %>
+<%= f.input :fax%>
+<%= f.input :contact %>
+<%= f.input :email %>
+<%= f.input :closure%>
+<%= f.submit company.persisted? ? 'Editar' : 'Criar', class: 'btn btn-outline-primary w-100' %>
+<% end %>

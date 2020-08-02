@@ -1,0 +1,25 @@
+<%= simple_form_for(employee) do |f| %>
+<%= f.input :photos, as: :file, input_html: { multiple: true } %>
+<%= f.input :name, label: '氏名 (Nome Completo):' %>
+<%= f.input :furigana %>
+<%= f.input :address %>
+<%= f.input :phone %>
+<%= f.input :email %>
+<%= f.input :role, collection: Employee::ROLES %>
+<%= f.input :level_employee, collection: 1..5 %>
+<%= f.input :started_date %>
+<%= f.input :job_exp %>
+<%= f.input :pay_number %>
+<%= f.input :licence1, as: :boolean %>
+<%= f.input :licence2, as: :boolean %>
+<%= f.input :licence3, as: :boolean %>
+<%= f.input :licence4, as: :boolean %>
+<%= f.input :licence5, as: :boolean %>
+<%= f.input :drive_licence %>
+<%= f.input :healthy_exam %>
+<%= f.input :document, label: 'Zairyo Card'  %>
+<%= f.input :document_date %>
+<%= f.input :passport %>
+<%= f.input :passport_date %>
+<%= f.submit employee.persisted? ? 'Editar' : 'Criar', class: 'btn btn-outline-primary w-100' %>
+<% end %>

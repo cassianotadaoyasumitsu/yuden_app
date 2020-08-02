@@ -1,2 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+<div class="row justify-content-center">
+  <%= image_tag "logo.png", alt: "alttext", class: 'p-5' %>
+</div>
+<%= link_to 'Funcionários', employees_path, class: 'btn btn-outline-success w-100' %>
+<%= link_to 'Empresas', companies_path, class: 'btn btn-outline-success w-100' %>
+
+
+</div>

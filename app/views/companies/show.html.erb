@@ -1,0 +1,33 @@
+<div class="container p-5">
+<div class="row">
+  <div class="container">
+    <h1 class="mb-5 text-center"><%= @company.name %>
+      <p><%= @company.furigana %></p>
+    </h1>
+
+    <p>Dono: <%= @company.ceo %></p>
+    <p>Endereço: <%= @company.address %></p>
+    <p>Endereço: <%= @company.address2 %></p>
+    <p>Contato: <%= @company.contact %></p>
+    <p>Telefone: <%= @company.phone %></p>
+    <p>Fax: <%= @company.fax %></p>
+    <p>Email: <%= @company.email %></p>
+    <p>Fechamento: <%= @company.closure %></p>
+
+    <%= link_to 'Voltar', companies_path, class: ' btn btn-primary' %>
+  </div>
+
+  <div class="container">
+
+    <h1 class="mb-5 text-center">Genbas</h1>
+
+    <% @company.genbas.each do |genba| %>
+    <%= genba.name %>
+    <%= genba.address %>
+    <% end %>
+
+  </div>
+
+  <%= link_to 'Criar novo genba', new_company_genba_path(@company)  %>
+</div>
+</div>

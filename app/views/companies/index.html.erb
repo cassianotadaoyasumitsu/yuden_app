@@ -1,0 +1,24 @@
+<div class="row justify-content-center">
+  <%= image_tag "logo.png", alt: "alttext", class: 'p-5' %>
+</div>
+
+<h1 class="mb-5 text-center">Empresas</h1>
+
+<%= link_to 'Criar Nova Empresa', new_company_path, class: 'btn btn-outline-primary w-100 mb-4' %>
+
+<ul class="list-group mb-3">
+  <% @companies.each do |company| %>
+  <li class="list-group-item">
+    <%= company.name %> -
+    <%= link_to 'Visualizar', company_path(company), class: 'btn btn-primary' %> -
+    <%= link_to 'Editar', edit_company_path(company), class: 'btn btn-info ' %> -
+    <%= link_to 'Deletar', company_path(company),
+    method: :delete,
+    data: { confirm: 'Tem certeza?'},
+    class: 'btn btn-danger' %>
+  </li>
+  <% end %>
+</ul>
+
+
+<%= link_to 'Home', root_path, class: 'btn btn-outline-info' %>
