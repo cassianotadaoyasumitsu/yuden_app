@@ -15,7 +15,7 @@ class CreateEmployees < ActiveRecord::Migration[6.0]
       t.boolean :licence2, default: false
       t.boolean :licence3, default: false
       t.boolean :licence4, default: false
-      t.boolean :licence5, default: false, label: 'Driver Licence:'
+      t.boolean :licence5, default: false
       t.date :healthy_exam
       t.date :drive_licence
       t.string :document
