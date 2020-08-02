@@ -18,8 +18,8 @@
 <%= f.input :drive_licence %>
 <%= f.input :healthy_exam %>
 <%= f.input :document, label: 'Zairyo Card'  %>
-<%= f.input :document_date %>
+<%= f.input :document_date, label: 'Vencimento' %>
 <%= f.input :passport %>
-<%= f.input :passport_date %>
-<%= f.submit employee.persisted? ? 'Editar' : 'Criar', class: 'btn btn-outline-primary w-100' %>
+<%= f.input :passport_date, label: 'Vencimento' %>
+<%= f.submit employee.persisted? ? 'Editar' : 'Criar', class: 'btn btn-primary w-100' %>
 <% end %>

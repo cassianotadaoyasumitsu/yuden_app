@@ -1,12 +1,11 @@
- <div class="container">
-
-  <h1 class="mb-5 text-center"><%= @employee.name%> ( <small><%= @employee.role %></small> ) </h1>
-
+<div class="container p-5">
+  <div class="mt-5">
+    <h1 class="text-center"><%= @employee.name %> ( <small><%= @employee.role %></small> ) </h1>
+  </div>
   <div>
     <% @employee.photos.each do |photo| %>
     <%= cl_image_tag photo.key, height: 150, width: 200, crop: :fill %>
     <% end %>
-
     <p>Número: <%= @employee.pay_number %></p>
     <p>Nome Completo: <%= @employee.name %></p>
     <p>Furigana: <%= @employee.furigana %></p>
@@ -31,7 +30,5 @@
     <p>Passaporte: <%= @employee.passport %> - Venc. <%= @employee.passport_date %></p>
     <p>Zairyo Card: <%= @employee.document %> <span>Venc. <%= @employee.document_date %></span></p>
   </div>
-
-  <%= link_to 'Voltar', employees_path, class: ' btn btn-outline-primary' %>
-
+  <%= link_to 'Voltar', employees_path, class: ' btn btn-primary' %>
 </div>

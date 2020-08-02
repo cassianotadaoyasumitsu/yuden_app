@@ -1,22 +1,18 @@
 <div class="container d-flex flex-column mt-5 align-items-center">
-<div class="row justify-content-center">
-  <%= image_tag "logo.png", alt: "alttext", class: 'p-5 mt-5' %>
-</div>
+  <div class="row justify-content-center">
+    <%= image_tag "logo.png", alt: "alttext", class: 'p-5 mt-5' %>
+  </div>
 
-<h1 class="mb-3 text-center">Funcionários</h1>
-
-<%= link_to 'Criar Novo Funcionário', new_employee_path, class: 'btn btn-primary w-50 mb-4' %>
-
-<ul class="list-group mb-3">
-  <% @employees.each do |employee| %>
-  <li class="list-group-item"><%= employee.name %> -
-    <%= link_to 'Visualizar', employee_path(employee), class: 'btn btn-primary rounded-pill' %> -
-    <%= link_to 'Editar', edit_employee_path(employee), class: 'btn btn-info rounded-pill' %> -
-    <%= link_to 'Deletar', employee_path(employee), class: 'btn btn-danger rounded-pill', method: :delete, data: { confirm: 'Tem certeza?'} %>
-  </li>
-  <% end %>
-</ul>
-
-
-<%= link_to 'Home', root_path, class: 'btn btn-info' %>
+  <h1 class="mb-3 text-center">Funcionários</h1>
+  <%= link_to 'Home', root_path, class: 'btn btn-info mb-3' %>
+  <%= link_to 'Criar Novo Funcionário', new_employee_path, class: 'btn btn-primary w-50 mb-4' %>
+  <ul class="list-group mb-3">
+    <% @employees.each do |employee| %>
+    <li class="list-group-item"><strong><%= employee.name %></strong> -
+      <%= link_to 'Visualizar', employee_path(employee), class: 'btn btn-primary rounded-pill' %> -
+      <%= link_to 'Editar', edit_employee_path(employee), class: 'btn btn-secondary rounded-pill' %> -
+      <%= link_to 'Deletar', employee_path(employee), class: 'btn btn-danger rounded-pill', method: :delete, data: { confirm: 'Tem certeza?'} %>
+    </li>
+    <% end %>
+  </ul>
 </div>
