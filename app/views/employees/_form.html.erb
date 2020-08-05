@@ -10,10 +10,14 @@
 <%= f.input :started_date %>
 <%= f.input :job_exp %>
 <%= f.input :pay_number %>
+<div class="row justify-content-around">
 <%= f.input :licence1, as: :boolean %>
 <%= f.input :licence2, as: :boolean %>
+</div>
+<div class="row justify-content-around">
 <%= f.input :licence3, as: :boolean %>
 <%= f.input :licence4, as: :boolean %>
+</div>
 <%= f.input :licence5, as: :boolean, label: 'Driver Licence:' %>
 <%= f.input :drive_licence %>
 <%= f.input :healthy_exam %>
@@ -21,5 +25,8 @@
 <%= f.input :document_date, label: 'Vencimento' %>
 <%= f.input :passport %>
 <%= f.input :passport_date, label: 'Vencimento' %>
-<%= f.submit employee.persisted? ? 'Editar' : 'Criar', class: 'btn btn-primary w-100' %>
+<br>
+<div class="d-flex justify-content-center">
+<%= f.submit employee.persisted? ? 'Editar' : 'Criar', class: 'btn btn-primary w-50' %>
+</div>
 <% end %>
