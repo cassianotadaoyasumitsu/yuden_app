@@ -4,7 +4,7 @@
   </div>
 
   <h1 class="mb-5 text-center">Empresas</h1>
-  <%= link_to 'Voltar', root_path, class: 'btn btn-info mb-3' %>
+  <%= link_to 'Voltar', authenticated_root_path, class: 'btn btn-info mb-3' %>
   <%= link_to 'Criar Nova Empresa', new_company_path, class: 'btn btn-primary w-50 mb-4' %>
   <ul class="list-group mb-3">
     <% @companies.each do |company| %>
