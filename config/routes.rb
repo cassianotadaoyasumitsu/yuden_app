@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
-  root to: 'pages#home'
+  devise_scope :user do
+    authenticated :user do
+      root to: 'pages#home', as: :authenticated_root
+    end
+    unauthenticated do
+      root to: 'devise/sessions#new', as: :unauthenticated_root
+    end
+  end
   resources :employees
   resources :companies do
     resources :genbas, only: [:new, :create]
