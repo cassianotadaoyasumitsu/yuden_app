@@ -10,4 +10,6 @@ class Employee < ApplicationRecord
   validates :level_employee, inclusion: { in: 0..5 }
   validates :level_employee, numericality: { only_integer: true }
   validates :started_date, presence: true
+
+  has_many :puntos, dependent: :destroy
 end

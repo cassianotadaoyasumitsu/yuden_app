@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_07_145926) do
+ActiveRecord::Schema.define(version: 2020_08_16_125306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,29 @@ ActiveRecord::Schema.define(version: 2020_08_07_145926) do
     t.index ["company_id"], name: "index_genbas_on_company_id"
   end
 
+  create_table "puntos", force: :cascade do |t|
+    t.time "in"
+    t.time "out"
+    t.date "date"
+    t.text "note"
+    t.boolean "active"
+    t.boolean "weekend"
+    t.boolean "night_shift"
+    t.boolean "day"
+    t.boolean "night"
+    t.boolean "day_off"
+    t.bigint "company_id", null: false
+    t.bigint "genba_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "employee_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_puntos_on_company_id"
+    t.index ["employee_id"], name: "index_puntos_on_employee_id"
+    t.index ["genba_id"], name: "index_puntos_on_genba_id"
+    t.index ["user_id"], name: "index_puntos_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -104,4 +127,8 @@ ActiveRecord::Schema.define(version: 2020_08_07_145926) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "genbas", "companies"
+  add_foreign_key "puntos", "companies"
+  add_foreign_key "puntos", "employees"
+  add_foreign_key "puntos", "genbas"
+  add_foreign_key "puntos", "users"
 end
