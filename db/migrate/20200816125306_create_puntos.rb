@@ -12,10 +12,9 @@ class CreatePuntos < ActiveRecord::Migration[6.0]
       t.boolean :night
       t.boolean :day_off
 
-      t.references :company, null: false, foreign_key: true
-      t.references :genba, null: false, foreign_key: true
+
       t.references :user, null: false, foreign_key: true
-      t.references :employee, null: false, foreign_key: true
+
 
       t.timestamps
     end

@@ -100,15 +100,9 @@ ActiveRecord::Schema.define(version: 2020_08_16_125306) do
     t.boolean "day"
     t.boolean "night"
     t.boolean "day_off"
-    t.bigint "company_id", null: false
-    t.bigint "genba_id", null: false
     t.bigint "user_id", null: false
-    t.bigint "employee_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["company_id"], name: "index_puntos_on_company_id"
-    t.index ["employee_id"], name: "index_puntos_on_employee_id"
-    t.index ["genba_id"], name: "index_puntos_on_genba_id"
     t.index ["user_id"], name: "index_puntos_on_user_id"
   end
 
@@ -127,8 +121,5 @@ ActiveRecord::Schema.define(version: 2020_08_16_125306) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "genbas", "companies"
-  add_foreign_key "puntos", "companies"
-  add_foreign_key "puntos", "employees"
-  add_foreign_key "puntos", "genbas"
   add_foreign_key "puntos", "users"
 end

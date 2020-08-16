@@ -1,8 +1,9 @@
-<%= simple_form_for [user, employee, company, genba, punto] do |f| %>
+<%= simple_form_for [punto] do |f| %>
 <%= f.input :day %>
 <%= f.input :night %>
 <%= f.input :day_off %>
 <%= f.input :date %>
+<%= f.button :button, "button" %>
 <%= f.input :in %>
 <%= f.input :out %>
 <%= f.input :note %>

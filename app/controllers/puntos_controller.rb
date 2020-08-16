@@ -1,8 +1,5 @@
 class PuntosController < ApplicationController
-
-  def index
-    @puntos = Punto.all
-  end
+  before_action :find_user
 
   def show
     @punto = Punto.find(params[:id])
@@ -14,12 +11,9 @@ class PuntosController < ApplicationController
 
   def create
     @punto = Punto.new(punto_params)
-    @punto.genba = @genba
-    @punto.company = @company
-    @punto.employee = @employee
     @punto.user = @user
     if @punto.save
-      redirect_to punto_path
+      redirect_to punto_path(current_user)
     else
       flash.alert = "No punto"
       render :new
@@ -29,10 +23,7 @@ class PuntosController < ApplicationController
   private
 
   def find_user
-    @genba = Genba.find(params[:id])
-    @company = Company.find(params[:id])
-    @employee = Employee.find(params[:id])
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
   end
 
   def punto_params
