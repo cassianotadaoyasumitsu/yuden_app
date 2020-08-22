@@ -1,19 +1,26 @@
 class PuntosController < ApplicationController
   before_action :find_user
 
+  def index
+    @puntos = Punto.all
+  end
+
   def show
     @punto = Punto.find(params[:id])
   end
 
   def new
-    @punto = Punto.new
+    @punto = current_user.puntos.last
+    if @punto.out
+      @punto = Punto.new
+    end
   end
 
   def create
     @punto = Punto.new(punto_params)
     @punto.user = @user
     if @punto.save
-      redirect_to punto_path(current_user)
+      redirect_to punto_path(@punto)
     else
       flash.alert = "No punto"
       render :new
