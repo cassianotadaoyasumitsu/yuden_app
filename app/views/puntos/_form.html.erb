@@ -5,11 +5,15 @@
 <%= f.input :date %>
 <%# raise %>
 <% if punto.in %>
-<%= f.input :out, as: :hidden, html5: true, input_html: { value: Time.now.strftime("%k:%M") } %>
+<%= f.input :out, as: :time, html5: true, input_html: { value: Time.now.strftime("%k:%M") } %>
 <% else %>
-<%= f.input :in, as: :hidden, html5: true, input_html: { value: Time.now.strftime("%k:%M") } %>
+<%= f.input :in, as: :time, html5: true, input_html: { value: Time.now.strftime("%k:%M") } %>
 <% end %>
+<% if punto.out %>
+<%= f.input :note, as: :hidden %>
+<% else %>
 <%= f.input :note %>
+<% end %>
 <%= f.input :weekend %>
 <%= f.input :night_shift %>
 <% if punto.in %>
