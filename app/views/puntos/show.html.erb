@@ -2,10 +2,13 @@
 <h1>Report</h1>
 
 
+
+<% current_user.puntos.each do |punto| %>
 <p><%= @punto.date %></p>
 <p><%= @punto.in.strftime("%k:%M") %></p>
 <p>out time: <%= @punto.out %></p>
 <p><%= @punto.user.email %></p>
+<% end %>
 
 
 
