@@ -7,7 +7,7 @@
   <%= link_to 'Voltar', authenticated_root_path, class: 'btn btn-info mb-3' %>
   <%= link_to 'Criar Novo Funcionário', new_employee_path, class: 'btn btn-primary w-50 mb-4' %>
   <ul class="list-group mb-3">
-    <% @employees.each do |employee| %>
+    <% @employees.order(:name).each do |employee| %>
     <li class="list-group-item">
       <div class="row justify-content-between align-items-center">
         <div>
