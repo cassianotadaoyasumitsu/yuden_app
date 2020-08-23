@@ -6,13 +6,17 @@ class PuntosController < ApplicationController
   end
 
   def show
-    @punto = Punto.find(params[:id])
+    @punto = current_user.puntos.all
   end
 
   def new
-    @punto = current_user.puntos.last
-    if @punto.out
+    if !current_user.puntos.last
       @punto = Punto.new
+    else
+    @punto = current_user.puntos.last
+      if @punto.out
+        @punto = Punto.new
+      end
     end
   end
 
@@ -33,25 +37,24 @@ class PuntosController < ApplicationController
   def update
     @punto = current_user.puntos.last
     if @punto.in
-     @punto.update(punto_params)
-     redirect_to authenticated_root_path
-   else
-    render :edit
+      @punto.update(punto_params)
+      redirect_to authenticated_root_path
+    else
+      render :edit
+    end
   end
-end
 
-private
+  private
 
-def find_user
-  @user = User.find(current_user.id)
-end
+  def find_user
+    @user = User.find(current_user.id)
+  end
 
-def punto_params
-  params.require(:punto).permit(
+  def punto_params
+    params.require(:punto).permit(
     :in, :out, :date, :note,
     :active, :weekend, :night_shift,
     :day, :night, :day_off
-    )
+  )
+  end
 end
-end
-

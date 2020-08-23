@@ -2,11 +2,32 @@
 <h1>Report</h1>
 
 
-<p><%= @punto.date %></p>
-<p><%= @punto.in.strftime("%k:%M") %></p>
-<p>out time: <%= @punto.out %></p>
-<p><%= @punto.user.email %></p>
 
 
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">In</th>
+      <th scope="col">Out</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+<% current_user.puntos.each do |punto| %>
 
+  <tbody>
+    <tr>
+      <th scope="row"><%= current_user.id %></th>
+      <td><%= punto.date %></td>
+      <td><%= punto.in.strftime("%k:%M") %></td>
+      <td><%= punto.out %></td>
+      <td><%= punto.user.email %></td>
+    </tr>
+  </tbody>
+<% end %>
+</table>
 </div>
+
+
+
